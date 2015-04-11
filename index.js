@@ -9,7 +9,9 @@ var id = null;
 
 var supportedDomains = [
   'i.imgur.com',
-  'imgur.com'
+  'imgur.com',
+  'farm9.staticflickr.com',
+  'farm8.staticflickr.com'
 ];
 
 getCache()
