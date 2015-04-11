@@ -1,0 +1,24 @@
+{
+  "name": "reddit-wallpapers",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/petecoop/reddit-wallpapers.git"
+  },
+  "author": "petecoop <pete@petecoop.co.uk> (http://petecoop.co.uk/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/petecoop/reddit-wallpapers/issues"
+  },
+  "homepage": "https://github.com/petecoop/reddit-wallpapers",
+  "dependencies": {
+    "bluebird": "^2.9.24",
+    "request-promise": "^0.4.1",
+    "wallpaper": "^1.0.0"
+  }
+}
