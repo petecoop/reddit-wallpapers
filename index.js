@@ -14,6 +14,8 @@ var supportedDomains = [
   'farm8.staticflickr.com'
 ];
 
+if(config.flickrKey) supportedDomains.push('flickr.com');
+
 getCache()
   .then(function (result) {
     cache = result;
@@ -70,13 +72,27 @@ function getWallpaper (subreddit) {
     cache.seen.push(item.id);
 
     // get image url
-
-    // hack for imgur imgs
     if(item.domain == 'imgur.com'){
+      // hack for imgur imgs
       return item.url.replace('imgur.com', 'i.imgur.com') + '.jpg';
+    }else if(item.domain == 'flickr.com'){
+      // get flickr url
+      return request({
+        url: 'https://api.flickr.com/services/rest/?method=flickr.photos.getSizes',
+        qs: {
+          photo_id: item.url.split('/')[5],
+          api_key: config.flickrKey,
+          format: 'json',
+          nojsoncallback: 1
+        },
+        json: true
+      }).then(function (result) {
+        var sizes = result.sizes.size;
+        return sizes[sizes.length - 1].source;
+      });
+    }else{
+      return item.url;
     }
-
-    return item.url;
   })
   .then(function (url) {
     return new Promise(function (resolve, reject) {

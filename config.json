@@ -2,5 +2,6 @@
   "subreddits": [
     "earthporn",
     "spaceporn"
-  ]
+  ],
+  "flickrKey": false
 }
