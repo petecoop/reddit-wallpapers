@@ -113,6 +113,6 @@ function getWallpaper (subreddit) {
 
 function writeCache () {
   var json = JSON.stringify(cache);
-  return fs.writeFileAsync('.cache.json', json);
+  return fs.writeFileAsync(__dirname + '/.cache.json', json);
 }
 
